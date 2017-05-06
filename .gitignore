@@ -28,3 +28,9 @@ build/Release
 node_modules
 
 .DS_Store
+
+# Untracked Toy Problems
+untracked/
+
+# Webstorm
+.idea
