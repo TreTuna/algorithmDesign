@@ -1,0 +1,29 @@
+{
+  "name": "toyproblems",
+  "version": "1.0.0",
+  "description": "Toy Problem repo to showcase algorithm design",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TreTuna/toyProblems.git"
+  },
+  "keywords": [
+    "toy",
+    "problems"
+  ],
+  "author": "Tre Ammatuna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TreTuna/toyProblems/issues"
+  },
+  "homepage": "https://github.com/TreTuna/toyProblems#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "jquery": "^3.2.1",
+    "mocha": "^3.3.0",
+    "underscore": "^1.8.3"
+  }
+}
