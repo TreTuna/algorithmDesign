@@ -4,7 +4,7 @@ My solutions for toy problem algorithms written in Javascript for the Browser.
 
 Requirements
 
-This suite requires npm and node.
+This suite requires node.
 
 Installation
 
