@@ -1,34 +1,45 @@
-var Tree = function(value){
-  this.value = value;
-  this.children = [];
-};
+Implement the countLeaves function in this Tree class.
 
-Tree.prototype.countLeaves = function () {
+A leaf node is any node in the tree that has no children. countLeaves should traverse the tree, and return the number of leaf nodes the tree contains.
 
-  var leafCount = 0;
+  Illustration of a tree with three leaves:
 
-  var checkNodes = function(node){
-    if(node.children.length === 0){
-      leafCount++;
-      return;
-    };
-    for(var i = 0; i < node.children.length; i++) {
-      checkNodes(node.children[i]);
-    };
+  * <- root
+/ \
+*    * <- leaf
+/ \
+*   * <- leaf
+/
+* <- leaf
+Example usage:
+  var root = new Tree();
+root.countLeaves(); // 1
+root.addChild(new Tree());
+root.countLeaves(); // still 1
+root.addChild(new Tree());
+root.children[0].addChild(new Tree());
+root.children[0].addChild(new Tree());
+root.children[0].children[0].addChild(new Tree());
+root.countLeaves(); // 3
+
+Given Code:
+  var Tree = function(value){
+    this.value = value;
+    this.children = [];
   };
 
-  checkNodes(this);
-  return leafCount;
+Tree.prototype.countLeaves = function () {
+  // TODO: implement me!
 }
 
-/**
+/!**
  * You shouldn't need to change anything below here, but feel free to look.
- */
+ *!/
 
-/**
+/!**
  * add an immediate child
  * (wrap values in Tree nodes if they're not already)
- */
+ *!/
 Tree.prototype.addChild = function(child){
   if (!child || !(child instanceof Tree)){
     child = new Tree(child);
@@ -43,10 +54,10 @@ Tree.prototype.addChild = function(child){
   return child;
 };
 
-/**
+/!**
  * check to see if the provided tree is already a child of this
  * tree __or any of its sub trees__
- */
+ *!/
 Tree.prototype.isDescendant = function(child){
   if(this.children.indexOf(child) !== -1){
     // `child` is an immediate child of this tree
@@ -62,9 +73,9 @@ Tree.prototype.isDescendant = function(child){
   }
 };
 
-/**
+/!**
  * remove an immediate child
- */
+ *!/
 Tree.prototype.removeChild = function(child){
   var index = this.children.indexOf(child);
   if(index !== -1){
