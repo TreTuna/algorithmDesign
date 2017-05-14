@@ -1,6 +1,6 @@
 var should = chai.should();
 
-describe('constructor', function(){
+describe('Bubble Sort', function(){
   it('should exist', function(){
       should.exist(bubbleSort);
   });
