@@ -1,7 +1,3 @@
-/**
- * Created by TreTuna on 12/15/16.
- */
-
 var should = chai.should();
 
 describe("LinkedList", function() {

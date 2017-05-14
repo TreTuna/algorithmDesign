@@ -1,5 +1,3 @@
-// Implement a linked-list
-
 var LinkedList = function (initialValue) {
   if(!initialValue) {
     this.head = null;
@@ -55,12 +53,3 @@ LinkedList.prototype.newNode = function(value) {
   node.next = null;
   return node;
 };
-
-/*
-Given Code:
-
-var LinkedList = function (initialValue) {
-  // Write your code here
-};
-
-// etc...*/
