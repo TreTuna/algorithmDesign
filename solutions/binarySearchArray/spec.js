@@ -1,4 +1,4 @@
-
+var should = chai.should();
 
 describe('binarySearch', function() {
   it('should exist', function() {
