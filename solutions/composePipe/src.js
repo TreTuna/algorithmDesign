@@ -1,0 +1,7 @@
+const compose = () => {
+
+};
+
+const pipe = () => {
+
+};
