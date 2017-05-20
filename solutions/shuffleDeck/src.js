@@ -6,9 +6,9 @@ const swap = (a, b, array) => {
 };
 
 const shuffleDeck = function(deck) {
-  for (var i = 0; i < deck.length; i++) {
-    var pick = i + Math.floor(Math.random() * (deck.length - i));
-    swap(i, pick, deck);
+  for (let i = 0; i < deck.length; i++) {
+    let cardToSwap = i + Math.floor(Math.random() * (deck.length - i));
+    swap(i, cardToSwap, deck);
   }
   return deck;
 };
