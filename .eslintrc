@@ -1,6 +1,0 @@
-{
-  "extends": ["eslint:recommended", "airbnb"],
-  "rules": {
-    // Additional, per-project rules...
-  }
-}

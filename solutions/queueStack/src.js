@@ -1,48 +1,82 @@
-var Stack = function() {
-  var storage = [];
-  var count = 0;
+/* eslint-disable no-unused-vars */
+class Stack {
+  constructor (capacity) {
+    this._storage = {}
+    this._capacity = capacity
+    this._size = 0
+  }
+}
 
-  this.push = function(value){
-    storage[count] = value;
-    count += 1;
-  };
+Stack.prototype.push = function (value) {
+  if (this._size >= this._capacity) {
+    return 'Max capacity already reached. Remove element before adding a new one.'
+  }
+  this._storage[this._size++] = value
+  return this._size
+}
+// Time complexity: O(1)
 
-  this.pop = function(){
-    var value = storage[count -= 1];
-    delete storage[count];
-    return value;
-  };
+Stack.prototype.pop = function () {
+  let temp = this._storage[--this._size]
+  delete this._storage[this._size]
+  if (this._size < 0) this._size = 0
+  return temp
+}
+// Time complexity:O(1)
 
-  this.size = function(){
-    return count;
-  };
-};
+Stack.prototype.peek = function () {
+  return this._storage[this._size - 1]
+}
+// Time complexity:O(1)
 
-var Queue = function() {
+Stack.prototype.size = function () {
+  return this._size
+}
+// Time complexity:O(1)
 
-  var inbox = new Stack();
-  var outbox = new Stack();
+Stack.prototype.contains = function (value) {
+  for (let i = 0; i < this._size; i++) {
+    if (this._storage[i] === value) return true
+  }
+  return false
+}
 
-  this.enqueue = function(value){
-    inbox.push(value);
-  };
+Stack.prototype.until = function (value) {
+  let numberUntil = 0
+  for (let i = this._size - 1; i >= 0; i--) {
+    if (this._storage[i] === value) return numberUntil
+    numberUntil++
+  }
+  return 'Not found'
+}
 
-  this.dequeue = function(){
-    if(outbox.size() === 0) {
-      var inToOut = function() {
-        if(inbox.size() === 0) {
-          return;
-        } else if(inbox.size() > 0) {
-          outbox.push(inbox.pop());
-          inToOut();
-        }
-      }
-      inToOut();
-    }
-    return outbox.pop();
-  };
+class Queue {
+  constructor () {
+    this._inbox = new Stack()
+    this._outbox = new Stack()
+  }
+}
 
-  this.size = function(){
-    return inbox.size() + outbox.size();
-  };
-};
+Queue.prototype.enqueue = function (value) {
+  this._inbox.push(value)
+}
+
+Queue.prototype.inToOut = function () {
+  if (this._inbox.size() === 0) {
+    return console.log('nothing to dequeue')
+  } else if (this._inbox.size() > 0) {
+    this._outbox.push(this._inbox.pop())
+    this.inToOut()
+  }
+}
+
+Queue.prototype.dequeue = function () {
+  if (this._outbox.size() === 0) {
+    this.inToOut()
+  }
+  return this._outbox.pop()
+}
+
+Queue.prototype.size = function () {
+  return this._inbox.size() + this._outbox.size()
+}
